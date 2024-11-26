@@ -1,0 +1,536 @@
+/* General Styles */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  color: #ddd;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: rgb(0, 5, 12);
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header Styles */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent; /* Initial background */
+  color: white;
+  padding: 10px 20px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  transition: background 0.3s ease-in-out; /* Smooth background transition */
+}
+
+.header.scrolled {
+  background: #000000; /* Background after scrolling */
+}
+
+.logo {
+  font-size: 1.3em;
+  color: #ff0090;
+  font-weight: 800;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+.skillCon{
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+}
+
+
+
+.nav {
+  display: flex;
+  gap: 20px;
+  transition: all 0.3s ease-in-out; /* Smooth transition for toggle */
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2em;
+}
+
+.nav a:hover {
+  text-decoration: underline;
+}
+
+/* Progress Bar */
+.progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  background: #4caf50; /* Progress bar color */
+  transition: width 0.2s ease; /* Smooth progress bar movement */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block; /* Show menu button on small screens */
+  }
+
+  .nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px; /* Positioned below the header */
+    right: 10px;
+    background: #000000;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1001;
+    width: 150px; /* Menu width */
+  }
+
+  .nav.open {
+    display: flex;
+    margin-top: -10px;
+    margin-right: -20px; /* Show menu when toggled */
+  }
+
+  .nav a {
+    margin: 10px 0;
+  }
+}
+
+.section {
+  padding: 80px 20px;
+  margin-top: 0px;
+  border-bottom: 1px solid #ddd;
+  opacity: 0; /* Initially hidden for animation */
+  animation: fadeIn 1.5s forwards; /* Fade-in animation */
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Container for about section */
+.about {
+  padding: 40px;
+}
+
+/* Flex container for content (image first, then text) */
+.about-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* About text */
+.about-text {
+  max-width: 50%;
+}
+
+.animated-text {
+  font-size: 22px;
+  font-weight: bold;
+  color: #00ff73;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  padding-right: 5px;
+  animation: typing 4s steps(45) 1s 1 normal both, blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+/* Style for the image */
+.about-image img {
+  max-width: 240px;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+
+.about-image img:hover {
+  transform: scale(1.1);
+}
+
+/* Resume button */
+.download-btn {
+  display: inline-block;
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  margin-top: 20px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.download-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Mobile view */
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-text {
+    max-width: 100%;
+    margin-top: 20px;
+  }
+
+  .about-image {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+}
+/* From Uiverse.io by andrew-demchenk0 */
+
+.button {
+  position: relative;
+  display: flex;
+  margin: 20px auto;
+  width: 220px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border: 1px solid #233f58;
+  background-color: #0b6fcc;
+  overflow: hidden;
+  text-decoration: none;
+  padding: 25px 0;
+  font-weight: 800 !important;
+  border-radius: 10px;
+  font-size: 16px !important;
+}
+
+.button, .button__icon, .button__text {
+  transition: all 0.3s;
+}
+
+.button .button__text {
+  transform: translateX(22px);
+  color: #fff;
+  font-weight: 600;
+}
+
+.button .button__icon {
+  position: absolute;
+  transform: translateX(180px);
+  height: 100%;
+  width: 39px;
+  background-color: #21609b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button .svg {
+  width: 20px;
+  fill: #fff;
+}
+
+.button:hover {
+  background: #0b6fcc;
+}
+
+.button:hover .button__text {
+  color: transparent;
+}
+
+.button:hover .button__icon {
+  width: 148px;
+  transform: translateX(0);
+}
+
+.button:active .button__icon {
+  background-color: #146c54;
+}
+
+.button:active {
+  border: 1px solid #146c54;
+}
+@keyframes fadeIns {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Skill Cards */
+.skill-card {
+  animation: fadeIns 0.5s ease-out;
+  transform: translateY(20px); /* Start below the final position */
+  background-color: #000000; /* Dark card background */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Soft shadow for depth */
+  color: #fff; /* Light text color */
+  text-align: center;
+  transition: transform 0.3s, opacity 0.3s;
+  cursor: pointer;
+}
+
+.skill-card img {
+  width: 40px;
+  height: 40px;
+}
+
+.skill-card p {
+  font-size: 1.2em;
+  font-weight: 800;
+  color: #ffffff; 
+}
+
+/* Hover effect for skill cards */
+.skill-card:hover {
+  transform: translateY(-1px); /* Slightly lift the card on hover */
+  box-shadow: 0 6px 18px rgba(92, 30, 30, 0.9); /* Enhance shadow on hover */
+}
+
+/* Responsive Grid Layout */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+ gap: 16px;
+
+}
+
+@media (min-width: 600px) {
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr); /* 4 columns on larger screens */
+  }
+}
+
+/* Skill Icon Shadow Effects */
+.shadow-orange {
+  box-shadow: 0 0 10px rgba(255, 165, 0, 0.7); /* Orange shadow */
+}
+
+.shadow-blue {
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.7); /* Blue shadow */
+}
+
+.shadow-yellow {
+  box-shadow: 0 0 10px rgba(255, 255, 0, 0.7); /* Yellow shadow */
+}
+
+.shadow-gray {
+  box-shadow: 0 0 10px rgba(169, 169, 169, 0.7); /* Gray shadow */
+}
+
+.shadow-red {
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.7); /* Red shadow */
+}
+
+/* Heading Styles */
+.skills-section {
+  padding: 40px 0;
+  text-align: center;
+}
+
+.skills-section .section-header {
+  margin-bottom: 20px;
+}
+
+.skills-section .section-title {
+  font-size: 2rem;
+  color: #ff0090;
+  text-transform: uppercase; /* Ensure heading is white for visibility */
+}
+
+.skills-section .section-description {
+  font-size: 1.2rem;
+  color: #b0b0b0; /* Lighter color for description */
+}
+
+
+#Projects{
+  display: flex;
+  flex-direction: column;
+  margin: 10px auto;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  width: 98%;
+}
+#Projects h3{
+  font-size: 1.5em;
+  color: #ff0090;
+  font-weight: 800;
+}
+
+
+
+
+
+
+.project_grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 16px;
+  margin-top: 10px;
+  /* max-width: 300px; */
+  justify-content: center;
+  width: 95%;
+
+  /* align-items: center; */
+
+}
+@media (min-width: 600px) {
+  .project_grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 16px;
+    margin-top: 10px;
+    width: 95%;
+  
+  }
+}
+
+
+
+.project_card {
+  padding: 16px;
+  border: 1px solid #351212;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(53, 4, 4, 0.6);
+}
+
+.project_card h4 {
+  margin: 0 0 8px;
+  font-size: 1.2rem;
+}
+
+.project_card p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.project_card a {
+  margin-top: 8px;
+  display: inline-block;
+  color: #007BFF;
+  text-decoration: none;
+}
+
+.project_card a:hover {
+  text-decoration: underline;
+}
+
+
+
+
+
+/* General styles for the contact section */
+.section.contact {
+  padding: 50px;
+  background-color: #010411;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(87, 86, 86, 0.1);
+  margin: 20px;
+  opacity: 0;
+  text-align: center;
+  /* animation: fadeIn 1s forwards;  */
+
+}
+.footer{
+  text-align: center;
+  background-color: #db0cae;
+  padding: 10px 0;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  color: #ff0090;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.contact-text {
+  font-size: 1.1rem;
+  color: #d6d6d6;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* Email link styling */
+.email-link {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+  word-wrap: break-word;
+  transition: color 0.3s ease, transform 0.3s ease; /* Transition effects */
+}
+
+/* Hover effect on email link */
+.email-link:hover {
+  color: #0056b3;
+  transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* Phone number styling */
+.contact-text:last-of-type {
+  margin-top: 10px;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
